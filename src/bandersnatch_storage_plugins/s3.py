@@ -173,7 +173,7 @@ class S3Storage(StoragePlugin):
         if aws_secret_access_key:
             s3_args["aws_secret_access_key"] = aws_secret_access_key
         if signature_version:
-            s3_args["config"] = Config(signature_version=signature_version)
+            s3_args["config"] = Config(signature_version=signature_version,s3={'addressing_style':'virtual'})
         resource = boto3.resource("s3", **s3_args)
         register_configuration_parameter(
             mirror_base_path,

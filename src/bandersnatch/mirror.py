@@ -41,8 +41,8 @@ class Mirror:
         self.master = master
         self.filters = LoadedFilters(load_all=True)
         self.workers = workers
-        if self.workers > 10:
-            raise ValueError("Downloading with more than 10 workers is not allowed")
+        # if self.workers > 10:
+        #     raise ValueError("Downloading with more than 10 workers is not allowed")
 
         # Lets record and report back the changes we do each run
         # Format: dict['pkg_name'] = [set(removed), Set[added]
@@ -237,8 +237,8 @@ class BandersnatchMirror(Mirror):
         self.download_mirror_no_fallback = download_mirror_no_fallback
         self.workers = workers
         self.diff_file_list = diff_file_list or []
-        if self.workers > 10:
-            raise ValueError("Downloading with more than 10 workers is not allowed.")
+        # if self.workers > 10:
+        #     raise ValueError("Downloading with more than 10 workers is not allowed.")
         # Use self. variables to pass as some defaults are defined ...
         self.simple_api = SimpleAPI(
             self.storage_backend,
